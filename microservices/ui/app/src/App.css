@@ -2,6 +2,9 @@
 
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -33,6 +36,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100vw;
   padding: 0px 10px 0px 10px;
   color: white;
   background: #222;
@@ -72,11 +76,11 @@
 .banner {
   display: flex;
   flex-direction: column-reverse;
-  background: url('./images/banner.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background: url('images/banner.jpeg') no-repeat center center;
   height: 400px;
 }
 
@@ -88,6 +92,7 @@
   display: flex;
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
   padding: 10px;
   margin-bottom: 100px;
 }
@@ -105,7 +110,7 @@
 }
 
 .progress-img {
-  background: url('./images/progress-1.jpg');
+  background: url('images/progress-1.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -131,20 +136,52 @@
   color: gray;
 }
 
-.form {
+#form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 650px;
   margin-top: 40px;
 }
 
-.form-prompt {
+#form-prompt {
   font-size: 36px;
   color: gray;
 }
 
-.form-prompt-info {
+#form-prompt-info {
   width: 720px;
   margin-top: 40px;
   line-height: 150%;
+}
+
+#form-container {
+  display: flex;
+  width: 700px;
+}
+
+#form-container div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#form-right {
+  justify-content: flex-start;
+}
+
+#form-select {
+  margin-top: 40px;
+  width: 275px;
+  height: 35px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  background: url('images/select.jpg');
+  background-size: 100%;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid gray;
+  font-size: 14px;
+  outline: none;
+  padding-left: 10px;
 }

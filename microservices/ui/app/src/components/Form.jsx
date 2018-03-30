@@ -57,24 +57,28 @@ class Form extends Component {
 
   componentDidMount() {
     this.getUsers();
+
+
   }
 
   render() {
 
     return (
-      <div className="form">
-        <div className="form-prompt">
+      <div id="form">
+        <div id="form-prompt">
           Tell us a bit about yourself.
         </div>
-        <div className="form-prompt-info">
+        <div id="form-prompt-info">
           Tell us a bit about yourself and who you’d like to meet. The more we know, the better. Be candid--this info is for our eyes only. Tawkify profiles and photos will forever be 100% confidential.
         </div>
-        <div className="form-container">
-          <div className="form-left">
-            <div className="gender">
-            </div>
+        <div id="form-container">
+          <div id="form-left">
+            <select id="form-select">
+              <option>Female</option>
+              <option>Male</option>
+            </select>
           </div>
-          <div className="form-right">
+          <div id="form-right">
           </div>
         </div>
       </div>
