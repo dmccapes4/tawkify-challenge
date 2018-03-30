@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -34,6 +36,7 @@
   padding: 0px 10px 0px 10px;
   color: white;
   background: #222;
+  font-family: ProximaNova, sans-serif;
 }
 
 .nav-left {
@@ -64,4 +67,66 @@
   width: 150px;
   height: 50px;
   background: orange;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column-reverse;
+  background: url('./images/banner.jpeg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 400px;
+}
+
+.blurb {
+  color: white;
+}
+
+.blurb-background {
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-bottom: 100px;
+}
+
+.blurb {
+  width: 530px;
+}
+
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.progress-img {
+  background: url('./images/progress-1.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 580px;
+  height: 55px;
+}
+
+.progress-names {
+  display: flex;
+  width: 650px;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
+.ideal {
+  margin-left: 130px;
+  color: gray;
+}
+
+.add {
+  margin-left: 140px;
+  color: gray;
 }

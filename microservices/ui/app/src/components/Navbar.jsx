@@ -15,7 +15,10 @@ class Navbar extends Component {
         </div>
         <div className="nav-right">
           <p>1(888)494-7280</p>
-          <div className="call-now">FREE SCREENING</div>
+          <div className="call-now">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <p>FREE SCREENING</p>
+          </div>
         </div>
       </div>
     )
