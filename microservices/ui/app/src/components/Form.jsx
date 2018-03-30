@@ -73,11 +73,17 @@ class Form extends Component {
         </div>
         <div id="form-container">
           <div id="form-left">
+            <div id="input-prompt">YOUR GENDER</div>
             <select id="form-select">
               <option>Female</option>
               <option>Male</option>
             </select>
+            <div id="input-description">Select your gender.</div>
+            <div id="input-prompt">LOCATION</div>
+            <input id="form-input" type="text" placeholder="94158"></input>
+            <div id="input-description">Where are you located.</div>
           </div>
+          <div id="form-middle"></div>
           <div id="form-right">
           </div>
         </div>
