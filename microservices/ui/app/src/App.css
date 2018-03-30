@@ -137,55 +137,52 @@
   color: gray;
 }
 
-#form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 650px;
   margin-top: 40px;
+  margin-bottom: 200px;
 }
 
-#form-prompt {
+.form-prompt {
   font-size: 36px;
   color: gray;
 }
 
-#form-prompt-info {
+.form-prompt-info {
   width: 720px;
   margin-top: 40px;
   line-height: 150%;
 }
 
-#form-container {
+.form-container {
   display: flex;
   width: 700px;
 }
 
-#form-container div {
-  display: flex;
-  flex-direction: column;
-}
 
-#form-right {
+.form-right {
   flex: 2;
   justify-content: center;
 }
 
-#form-middle {
+.form-middle {
   flex: 1;
 }
 
-#form-left {
+.form-left {
   flex: 2;
   justify-content: center;
 }
 
-#input-prompt {
+.input-prompt {
   margin-top: 40px;
   margin-bottom: 10px;
 }
 
-#input-description {
+.input-description {
   font-size: 12px;
   color: gray;
 }
@@ -195,7 +192,7 @@ input, textarea, select {
   -moz-appearance: none;
 }
 
-#form-select {
+.form-select {
   width: 275px;
   height: 35px;
   -webkit-appearance: none;
@@ -211,7 +208,7 @@ input, textarea, select {
   padding-left: 10px;
 }
 
-#form-input {
+.form-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 263px;
@@ -222,4 +219,43 @@ input, textarea, select {
   padding: 0px;
   padding-left: 10px;
   color: rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.form-textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 263px;
+  height: 33px;
+  -webkit-border-radius: 0px;
+  border: 1px solid lightgray;
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  background: url('images/corner.jpg');
+  background-size: 100%;
+  padding-bottom: 1px;
+  outline: none;
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-button {
+  width: 80px;
+  height: 40px;
+  background: #0BB5FF;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+#form-income-factor-no {
+  background: lightgray;
 }
