@@ -189,10 +189,6 @@
   color: gray;
 }
 
-input, textarea, select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
 
 .form-select {
   width: 314px;
@@ -244,7 +240,7 @@ input, textarea, select {
   background: url('images/corner.jpg');
   background-size: 100%;
   background-position: center;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
   outline: none;
 }
 
@@ -253,7 +249,7 @@ input, textarea, select {
   justify-content: center;
 }
 
-.form-button {
+.button-inactive {
   width: 80px;
   height: 40px;
   background: #BCBEC0;
@@ -265,14 +261,22 @@ input, textarea, select {
   font-size: 13px;
 }
 
-.form-button:hover {
+.button-inactive:hover {
   background: #A9A9A9;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
-#form-income-factor-yes {
+.button-active {
+  width: 80px;
+  height: 40px;
   background: #00B9D7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+  font-size: 13px;
 }
 
 .form-button-description {
@@ -301,10 +305,6 @@ input, textarea, select {
 
 .form-birthday-year {
   width: 60px;
-}
-
-#form-height-factor-no {
-  background: #00B9D7;
 }
 
 #income-prompt {

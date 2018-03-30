@@ -8,16 +8,16 @@ class Form extends Component {
     super();
     this.state = {
       userInfo: {
-        gender: "",
-        seeking: "",
-        location: "",
-        birthday: "",
-        height: "",
+        gender: "Female",
+        seeking: "Men",
+        location: "94158",
+        birthday: "04/30/1984",
+        height: "5 ft. 3 in.",
         occupation: "",
-        heightFactor: "",
+        heightFactor: "No",
         occupation: "",
-        income: "",
-        incomeFactor: "",
+        income: "$100,000 - $125,000",
+        incomeFactor: "Yes",
         interests: ""
       },
       users: []
@@ -42,6 +42,22 @@ class Form extends Component {
       })
   }
 
+  addStyle(css) {
+    let style = document.createElement('style');
+
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+
+    console.log(style);
+
+    document.getElementsByTagName('head')[0].appendChild(style);
+
+    console.log(document.getElementsByTagName('head'));
+  }
+
   handleSubmit() {
     axios.post(url,
       {
@@ -59,10 +75,64 @@ class Form extends Component {
     this.getUsers();
 
 
+    const formGender = document.getElementById('form-gender');
+    formGender.addEventListener('change', () => {
+      this.state.userInfo.gender = formGender.options[formGender.selectedIndex].value
+    });
+
+    const formLocation = document.getElementById('form-location');
+    formLocation.addEventListener('change', () => {
+      this.state.userInfo.location = formLocation.value;
+    });
+
+    const formHeight = document.getElementById('form-height');
+    formHeight.addEventListener('change', () => {
+      this.state.userInfo.height = formHeight.options[formHeight.selectedIndex].value
+    });
+
+    const formOccupation = document.getElementById('form-occupation');
+    formOccupation.addEventListener('change', () => {
+      this.state.userInfo.occupation = formOccupation.value;
+    });
+
+
+    const formIncomeFactorYes = document.getElementById('form-income-factor-yes');
+    const formIncomeFactorNo = document.getElementById('form-income-factor-no');
+    formIncomeFactorYes.addEventListener('click', () => {
+      if (this.state.userInfo.incomeFactor !== 'Yes') {
+        this.state.userInfo.incomeFactor = 'Yes';
+        formIncomeFactorYes.classList.toggle('button-active');
+        formIncomeFactorYes.classList.toggle('button-inactive');
+        formIncomeFactorNo.classList.toggle('button-active');
+        formIncomeFactorNo.classList.toggle('button-inactive');
+      }
+    })
+    formIncomeFactorNo.addEventListener('click', () => {
+      if (this.state.userInfo.incomeFactor !== 'No') {
+        this.state.userInfo.incomeFactor = 'No';
+        formIncomeFactorYes.classList.toggle('button-active');
+        formIncomeFactorYes.classList.toggle('button-inactive');
+        formIncomeFactorNo.classList.toggle('button-active');
+        formIncomeFactorNo.classList.toggle('button-inactive');
+      }
+    });
+
+    const formSeeking = document.getElementById('form-seeking');
+    formSeeking.addEventListener('change', () => {
+      this.state.userInfo.seeking = formSeeking.options[formSeeking.selectedIndex].value
+    });
+
+    const formBirthdayDay = document.getElementById('day');
+    formBirthdayDay.addEventListener('change', () => {
+      let birthday = this.state.userInfo.birthday;
+      birthday = birthday.split('/');
+      birthday[1] = formBirthdayDay.value;
+      this.state.userInfo.birthday = birthday.join('/');
+      console.log(this.state.birthday);
+    })
   }
 
   render() {
-
     return (
       <div className="form">
         <div className="form-prompt">
@@ -101,7 +171,7 @@ class Form extends Component {
               <option>5 ft. 0 in.</option>
               <option>5 ft. 1 in.</option>
               <option>5 ft. 2 in.</option>
-              <option>5 ft. 3 in.</option>
+              <option selected="selected">5 ft. 3 in.</option>
               <option>5 ft. 4 in.</option>
               <option>5 ft. 5 in.</option>
               <option>5 ft. 6 in.</option>
@@ -131,8 +201,8 @@ class Form extends Component {
             <div className="input-description">What do you do?</div>
 
             <div className="form-button-container">
-              <div id="form-income-factor-yes" className="form-button">Yes</div>
-              <div id="form-income-factor-no" className="form-button">No</div>
+              <div id="form-income-factor-yes" className="button-active">Yes</div>
+              <div id="form-income-factor-no" className="button-inactive">No</div>
             </div>
             <div className="form-button-description">Is income a factor in your match preferences?</div>
           </div>
@@ -156,8 +226,8 @@ class Form extends Component {
             </div>
 
             <div className="form-button-container">
-              <div id="form-height-factor-yes" className="form-button">Yes</div>
-              <div id="form-height-factor-no" className="form-button">No</div>
+              <div id="form-height-factor-yes" className="button-active">Yes</div>
+              <div id="form-height-factor-no" className="button-inactive">No</div>
             </div>
             <div className="form-button-description">Is height a factor in your match preferences?</div>
 
@@ -167,7 +237,7 @@ class Form extends Component {
               <option>$40,000 - $60,000</option>
               <option>$60,000 - $80,000</option>
               <option>$80,000 - $100,000</option>
-              <option>$100,000 - $125,000</option>
+              <option selected="selected">$100,000 - $125,000</option>
               <option>$125,000 - $150,000</option>
               <option>$150,000 - $200,000</option>
               <option>$250,000 - $500,000</option>
