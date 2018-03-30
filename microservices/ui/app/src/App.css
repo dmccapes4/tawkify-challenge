@@ -37,6 +37,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
+  height: 75px;
   padding: 0px 10px 0px 10px;
   color: white;
   background: #222;
@@ -68,9 +69,10 @@
 }
 
 .call-now {
-  width: 150px;
-  height: 50px;
-  background: orange;
+  width: 146px;
+  height: 46px;
+  background: #ca9d85;
+  border: 2px solid white;
 }
 
 .banner {
@@ -178,7 +180,7 @@
 }
 
 .input-prompt {
-  margin-top: 40px;
+  margin-top: 60px;
   margin-bottom: 10px;
 }
 
@@ -193,28 +195,34 @@ input, textarea, select {
 }
 
 .form-select {
-  width: 275px;
-  height: 35px;
+  width: 314px;
+  height: 40px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-border-radius: 0px;
   color: rgba(0, 0, 0, 0.5);
   background: url('images/select.jpg');
-  background-size: 100%;
-  border: 1px solid lightgray;
+  background-size: 75%;
+  background-position: right;
+  background-repeat: no-repeat;
+  border: 2px solid lightgray;
   font-size: 14px;
   outline: none;
   padding: 0px;
   padding-left: 10px;
 }
 
+.form-select:hover {
+  cursor: pointer;
+}
+
 .form-input {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 263px;
-  height: 33px;
+  width: 300px;
+  height: 36px;
   -webkit-border-radius: 0px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
@@ -225,17 +233,18 @@ input, textarea, select {
 .form-textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 263px;
-  height: 33px;
+  width: 300px;
+  height: 34px;
   -webkit-border-radius: 0px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
   color: rgba(0, 0, 0, 0.5);
   background: url('images/corner.jpg');
   background-size: 100%;
-  padding-bottom: 1px;
+  background-position: center;
+  padding-bottom: 2px;
   outline: none;
 }
 
@@ -247,15 +256,73 @@ input, textarea, select {
 .form-button {
   width: 80px;
   height: 40px;
-  background: #0BB5FF;
+  background: #BCBEC0;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 90px;
   font-size: 13px;
 }
 
-#form-income-factor-no {
-  background: lightgray;
+.form-button:hover {
+  background: #A9A9A9;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#form-income-factor-yes {
+  background: #00B9D7;
+}
+
+.form-button-description {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #222;
+}
+
+.form-birthday-container {
+  margin-bottom: 10px;
+}
+
+.form-birthday-container input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid lightgray;
+  height: 35px;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.form-birthday-daymonth {
+  width: 50px;
+}
+
+.form-birthday-year {
+  width: 60px;
+}
+
+#form-height-factor-no {
+  background: #00B9D7;
+}
+
+#income-prompt {
+  margin-top: 50px;
+}
+
+#income-description {
+  color: #222;
+  margin-top: 2px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  margin-top: 50px;
+  background: #00B9D7;
+  color: white;
 }
