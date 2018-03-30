@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar.jsx';
 import Banner from './components/Banner.jsx';
 import ProgressTracker from './components/ProgressTracker.jsx';
+import Form from './components/Form.jsx';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Navbar />
         <Banner />
         <ProgressTracker />
+        <Form />
       </div>
     );
   }

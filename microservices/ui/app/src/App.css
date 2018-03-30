@@ -122,11 +122,29 @@
 }
 
 .ideal {
-  margin-left: 130px;
+  margin-left: 125px;
   color: gray;
 }
 
 .add {
-  margin-left: 140px;
+  margin-left: 145px;
   color: gray;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.form-prompt {
+  font-size: 36px;
+  color: gray;
+}
+
+.form-prompt-info {
+  width: 720px;
+  margin-top: 40px;
+  line-height: 150%;
 }
