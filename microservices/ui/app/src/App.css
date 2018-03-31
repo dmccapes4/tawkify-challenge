@@ -1,36 +1,16 @@
-
+@font-face {
+  font-family: ProximaNova;
+  src: url('ProximaNova-Black.otf');
+}
 
 .App {
+  font-family: ProximaNova;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 .nav {
   display: flex;
@@ -41,7 +21,6 @@
   padding: 0px 10px 0px 10px;
   color: white;
   background: #222;
-  font-family: ProximaNova, sans-serif;
 }
 
 .nav-left {
@@ -51,11 +30,17 @@
 }
 
 .nav-title {
-  font-size: 18px;
+  width: 150px;
+  height: 40px;
+  background: url('images/logo.jpeg');
+  background-size: 100%;
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
 .links {
   display: flex;
+  font-size: 14px;
 }
 
 .links p {
@@ -66,13 +51,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 24px;
 }
 
 .call-now {
-  width: 146px;
-  height: 46px;
-  background: #ca9d85;
-  border: 2px solid white;
+  width: 150px;
+  height: 58px;
+  background: url('images/callnow.jpg');
+  background-size: 100%;
+  margin: 10px;
 }
 
 .banner {
@@ -89,6 +76,7 @@
 
 .blurb {
   color: white;
+  line-height: 200%;
 }
 
 .blurb-background {
@@ -101,7 +89,8 @@
 }
 
 .blurb {
-  width: 530px;
+  width: 730px;
+  font-size: 20px;
 }
 
 .progress-tracker {

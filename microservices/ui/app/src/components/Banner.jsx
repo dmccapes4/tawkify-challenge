@@ -7,7 +7,7 @@ class Banner extends Component {
         <div className="blurb-background">
           <div className="blurb">
             We'd like to get to know you better. Tell us about yourself and someone you'd
-            would like to meet. Don't worry, no one will see this besides the matchmakers at Tawkify.
+            like to meet. Don't worry, no one will see this besides the matchmakers at Tawkify.
           </div>
         </div>
       </div>

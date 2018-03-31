@@ -5,7 +5,7 @@ class Navbar extends Component {
     return (
       <div className="nav">
         <div className="nav-left">
-          <p className="nav-title">tawkify</p>
+          <div className="nav-title"></div>
           <div className="links">
             <p>How it works</p>
             <p>FAQ</p>
@@ -15,10 +15,7 @@ class Navbar extends Component {
         </div>
         <div className="nav-right">
           <p>1(888)494-7280</p>
-          <div className="call-now">
-          <i className="fa fa-phone" aria-hidden="true"></i>
-          <p>FREE SCREENING</p>
-          </div>
+          <div className="call-now"></div>
         </div>
       </div>
     )

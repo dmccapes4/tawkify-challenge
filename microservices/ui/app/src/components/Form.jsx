@@ -42,30 +42,27 @@ class Form extends Component {
       })
   }
 
-  addStyle(css) {
-    let style = document.createElement('style');
-
-    if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-    } else {
-        style.appendChild(document.createTextNode(css));
-    }
-
-    console.log(style);
-
-    document.getElementsByTagName('head')[0].appendChild(style);
-
-    console.log(document.getElementsByTagName('head'));
-  }
-
   handleSubmit() {
+    let user = this.state.userInfo;
     axios.post(url,
       {
         "type": "insert",
         "args": {
           "table": "user",
           "objects": [
-            `${this.state.userInfo}`
+            {
+              "gender": `${user.gender}`,
+              "seeking": `${user.seeking}`,
+              "location": `${user.location}`,
+              "birthday": `${user.birthday}`,
+              "height": `${user.height}`,
+              "height_factor": `${user.heightFactor}`,
+              "occupation": `${user.occupation}`,
+              "income": `${user.income}`,
+              "income_factor": `${user.incomeFactor}`,
+              "interests": `${user.interests}`,
+              "id": `${this.state.users.length + 1}`
+            }
           ]
         }
       })
@@ -122,13 +119,65 @@ class Form extends Component {
       this.state.userInfo.seeking = formSeeking.options[formSeeking.selectedIndex].value
     });
 
+    const formBirthdayMonth = document.getElementById('month');
+    formBirthdayMonth.addEventListener('change', () => {
+      let birthday = this.state.userInfo.birthday;
+      birthday = birthday.split('/');
+      birthday[0] = formBirthdayMonth.value;
+      this.state.userInfo.birthday = birthday.join('/');
+    });
+
     const formBirthdayDay = document.getElementById('day');
     formBirthdayDay.addEventListener('change', () => {
       let birthday = this.state.userInfo.birthday;
       birthday = birthday.split('/');
       birthday[1] = formBirthdayDay.value;
       this.state.userInfo.birthday = birthday.join('/');
-      console.log(this.state.birthday);
+    });
+
+    const formBirthdayYear = document.getElementById('year');
+    formBirthdayYear.addEventListener('change', () => {
+      let birthday = this.state.userInfo.birthday;
+      birthday = birthday.split('/');
+      birthday[2] = formBirthdayYear.value;
+      this.state.userInfo.birthday = birthday.join('/');
+    });
+
+    const formHeightFactorYes = document.getElementById('form-height-factor-yes');
+    const formHeightFactorNo = document.getElementById('form-height-factor-no');
+    formHeightFactorYes.addEventListener('click', () => {
+      if (this.state.userInfo.heightFactor !== 'Yes') {
+        this.state.userInfo.heightFactor = 'Yes';
+        formHeightFactorYes.classList.toggle('button-active');
+        formHeightFactorYes.classList.toggle('button-inactive');
+        formHeightFactorNo.classList.toggle('button-active');
+        formHeightFactorNo.classList.toggle('button-inactive');
+      }
+    })
+    formHeightFactorNo.addEventListener('click', () => {
+      if (this.state.userInfo.heightFactor !== 'No') {
+        this.state.userInfo.heightFactor = 'No';
+        formHeightFactorYes.classList.toggle('button-active');
+        formHeightFactorYes.classList.toggle('button-inactive');
+        formHeightFactorNo.classList.toggle('button-active');
+        formHeightFactorNo.classList.toggle('button-inactive');
+      }
+    });
+
+    const formIncome = document.getElementById('form-income');
+    formIncome.addEventListener('click', () => {
+      this.state.userInfo.income = formIncome.options[formIncome.selectedIndex].value;
+    });
+
+    const formInterests = document.getElementById('form-interests');
+    formInterests.addEventListener('click', () => {
+      this.state.userInfo.interests = formInterests.value;
+    });
+
+    const submit = document.getElementById('about-submit');
+    submit.addEventListener('click', () => {
+      console.log(this.state.userInfo);
+      this.handleSubmit();
     })
   }
 
@@ -226,8 +275,8 @@ class Form extends Component {
             </div>
 
             <div className="form-button-container">
-              <div id="form-height-factor-yes" className="button-active">Yes</div>
-              <div id="form-height-factor-no" className="button-inactive">No</div>
+              <div id="form-height-factor-yes" className="button-inactive">Yes</div>
+              <div id="form-height-factor-no" className="button-active">No</div>
             </div>
             <div className="form-button-description">Is height a factor in your match preferences?</div>
 
