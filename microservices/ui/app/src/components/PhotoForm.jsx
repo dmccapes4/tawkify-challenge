@@ -8,7 +8,7 @@ class PhotoForm extends Component {
     super();
     this.state = {
       userInfo: {
-        imageFiles: []
+        imageFiles:[]
       },
       users: []
     }
@@ -59,14 +59,41 @@ class PhotoForm extends Component {
 
     const fileInput = document.getElementById('choose-file-btn');
     fileInput.addEventListener('change', () => {
-      this.state.userInfo.imageFiles.push(fileInput.files[0]);
+      let file = fileInput.files[0]
+
+      let reader = new FileReader();
+
+      reader.onload = e => {
+        console.log(e.target.result);
+        this.state.userInfo.imageFiles.push(e.target.result);
+      }
+
+      reader.readAsDataURL(file);
     });
 
     const photoDropZone = document.getElementById('photo-drop-zone');
-    photoDropZone.ondrop = e => {
-      console.log(e);
+    photoDropZone.addEventListener('dragover', e => {
+      e.stopPropagation();
       e.preventDefault();
-    }
+      e.dataTransfer.dropEffect = 'copy';
+    });
+    photoDropZone.addEventListener('drop', e => {
+      e.stopPropagation();
+      e.preventDefault();
+      let files = e.dataTransfer.files;
+
+      for (let i = 0, file; file = files[i]; i++) {
+          if (file.type.match(/image.*/)) {
+              let reader = new FileReader();
+
+              reader.onload = e2 => {
+                this.state.userInfo.imageFiles.push(e2.target.result);
+              }
+
+              reader.readAsDataURL(file);
+          }
+      }
+    });
 
     const submit = document.getElementById('photo-submit');
     submit.addEventListener('click', () => {
