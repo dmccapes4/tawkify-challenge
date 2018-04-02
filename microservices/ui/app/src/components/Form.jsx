@@ -39,7 +39,7 @@ class Form extends Component {
         this.setState({
           users: res.data
         });
-      })
+      });
   }
 
   handleSubmit() {
@@ -66,6 +66,7 @@ class Form extends Component {
           ]
         }
       });
+      this.getUsers();
       this.props.history.push("/addphotos");
   }
 
