@@ -8,15 +8,15 @@ class Form extends Component {
     super();
     this.state = {
       userInfo: {
-        gender: "Female",
-        seeking: "Men",
-        location: "94158",
-        birthday: "04/30/1984",
-        height: "5 ft. 3 in.",
+        gender: "",
+        seeking: "",
+        location: "",
+        birthday: "",
+        height: "",
         occupation: "",
         heightFactor: "No",
         occupation: "",
-        income: "$100,000 - $125,000",
+        income: "",
         incomeFactor: "Yes",
         interests: ""
       },
@@ -42,7 +42,7 @@ class Form extends Component {
       });
   }
 
-  handleSubmit() {
+  successfulSubmit() {
     let user = this.state.userInfo;
     console.log(this.state.users.length);
     axios.post(url,
@@ -69,6 +69,68 @@ class Form extends Component {
       });
       this.getUsers();
       this.props.history.push("/addphotos");
+  }
+
+  handleSubmit() {
+    let user = this.state.userInfo;
+    let error = false;
+    const errors = document.getElementById('errors');
+    while (errors.firstChild) {
+      errors.removeChild(errors.firstChild);
+    }
+
+    if (user.gender === "") {
+      let genderError = document.createElement("div");
+      genderError.innerHTML = "Please select a gender";
+      errors.appendChild(genderError);
+      error = true;
+    }
+    if (user.location === "") {
+      let locationError = document.createElement("div");
+      locationError.innerHTML = "Please enter a location";
+      errors.appendChild(locationError);
+      error = true;
+    }
+    if (user.height === "") {
+      let heightError = document.createElement("div");
+      heightError.innerHTML = "Please select a height";
+      errors.appendChild(heightError);
+      error = true;
+    }
+    if (user.occupation === "") {
+      let occupationError = document.createElement("div");
+      occupationError.innerHTML = "Please enter an occupation";
+      errors.appendChild(occupationError);
+      error = true;
+    }
+    if (user.seeking === "") {
+      let seekingError = document.createElement("div");
+      seekingError.innerHTML = "Please select the gender you are seeking";
+      errors.appendChild(seekingError);
+      error = true;
+    }
+    if (user.birthday === "") {
+      let birthdayError = document.createElement("div");
+      birthdayError.innerHTML = "Please enter your birthday";
+      errors.appendChild(birthdayError);
+      error = true;
+    }
+    if (user.income === "") {
+      let incomeError = document.createElement("div");
+      incomeError.innerHTML = "Please select an income";
+      errors.appendChild(incomeError);
+      error = true;
+    }
+    if (user.interests === "") {
+      let interestsError = document.createElement("div");
+      interestsError.innerHTML = "Please select an interest";
+      errors.appendChild(interestsError);
+      error = true;
+    }
+
+    if (!error) {
+      this.successfulSubmit();
+    }
   }
 
   componentDidMount() {
@@ -168,12 +230,12 @@ class Form extends Component {
     });
 
     const formIncome = document.getElementById('form-income');
-    formIncome.addEventListener('click', () => {
+    formIncome.addEventListener('change', () => {
       this.state.userInfo.income = formIncome.options[formIncome.selectedIndex].value;
     });
 
     const formInterests = document.getElementById('form-interests');
-    formInterests.addEventListener('click', () => {
+    formInterests.addEventListener('change', () => {
       this.state.userInfo.interests = formInterests.value;
     });
 
@@ -195,7 +257,7 @@ class Form extends Component {
             <div className="add">ADD PHOTOS</div>
           </div>
         </div>
-        <div className="form">
+        <div id="form" className="form">
           <div className="form-prompt">
             Tell us a bit about yourself.
           </div>
@@ -207,17 +269,19 @@ class Form extends Component {
 
               <div className="input-prompt">YOUR GENDER</div>
               <select id="form-gender" className="form-select">
+                <option></option>
                 <option>Female</option>
                 <option>Male</option>
               </select>
               <div className="input-description">Select your gender.</div>
 
               <div className="input-prompt">LOCATION</div>
-              <input id="form-location" className="form-input" type="text" placeholder="94158"></input>
+              <input id="form-location" className="form-input" type="text" placeholder="Enter ZIP code"></input>
               <div className="input-description">Where are you located.</div>
 
               <div className="input-prompt">YOUR HEIGHT</div>
               <select id="form-height" className="form-select">
+                <option></option>
                 <option>4 ft. 1 in.</option>
                 <option>4 ft. 2 in.</option>
                 <option>4 ft. 3 in.</option>
@@ -232,7 +296,7 @@ class Form extends Component {
                 <option>5 ft. 0 in.</option>
                 <option>5 ft. 1 in.</option>
                 <option>5 ft. 2 in.</option>
-                <option selected="selected">5 ft. 3 in.</option>
+                <option>5 ft. 3 in.</option>
                 <option>5 ft. 4 in.</option>
                 <option>5 ft. 5 in.</option>
                 <option>5 ft. 6 in.</option>
@@ -274,6 +338,7 @@ class Form extends Component {
 
               <div className="input-prompt">YOU ARE SEEKING</div>
               <select id="form-seeking" className="form-select">
+                <option></option>
                 <option>Men</option>
                 <option>Women</option>
               </select>
@@ -281,9 +346,9 @@ class Form extends Component {
 
               <div className="input-prompt">YOUR BIRTHDAY</div>
               <div className="form-birthday-container">
-                <input id="month" className="form-birthday-daymonth" type="textarea" placeholder="04"></input>
-                <input id="day" className="form-birthday-daymonth" type="textarea" placeholder="30"></input>
-                <input id="year" className="form-birthday-year" type="textarea" placeholder="1984"></input>
+                <input id="month" className="form-birthday-daymonth" type="textarea" placeholder="MM"></input>
+                <input id="day" className="form-birthday-daymonth" type="textarea" placeholder="DD"></input>
+                <input id="year" className="form-birthday-year" type="textarea" placeholder="YYYY"></input>
               </div>
 
               <div className="form-button-container">
@@ -294,11 +359,12 @@ class Form extends Component {
 
               <div id="income-prompt" className="input-prompt">INCOME</div>
               <select id="form-income" className="form-select">
+                <option></option>
                 <option>Less than $40,000</option>
                 <option>$40,000 - $60,000</option>
                 <option>$60,000 - $80,000</option>
                 <option>$80,000 - $100,000</option>
-                <option selected="selected">$100,000 - $125,000</option>
+                <option>$100,000 - $125,000</option>
                 <option>$125,000 - $150,000</option>
                 <option>$150,000 - $200,000</option>
                 <option>$250,000 - $500,000</option>
@@ -315,6 +381,7 @@ class Form extends Component {
           </div>
 
           <div id="about-submit" className="submit">SAVE AND CONTINUE</div>
+          <div id="errors" className="errors"></div>
         </div>
       </div>
     )

@@ -418,3 +418,7 @@
 .form-photo-desc {
   font-size: 14px;
 }
+
+.errors {
+  color: red;
+}

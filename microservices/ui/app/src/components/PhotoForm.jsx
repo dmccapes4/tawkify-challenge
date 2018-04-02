@@ -122,7 +122,7 @@ class PhotoForm extends Component {
           <div id="photo-drop-zone" className="form-photo-img"></div>
           <input type="file" id="choose-file-btn" className="choose-file-btn" />
           <div className="form-photo-desc">
-            Your pictures must be 4 megabytes or smaller. If you have problems, please contact us1l 1 (646) 791-3283
+            Your pictures must be 4 megabytes or smaller. If you have problems, please contact us 1 (646) 791-3283
           </div>
           <div id="photo-submit" className="submit">
             SAVE AND CONTINUE
