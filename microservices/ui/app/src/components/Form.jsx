@@ -44,6 +44,7 @@ class Form extends Component {
 
   handleSubmit() {
     let user = this.state.userInfo;
+    console.log(this.state.users.length);
     axios.post(url,
       {
         "type": "insert",

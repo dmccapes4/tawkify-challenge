@@ -60,6 +60,16 @@ class PhotoForm extends Component {
     const fileInput = document.getElementById('choose-file-btn');
     fileInput.addEventListener('change', () => {
       this.state.userInfo.imageFiles.push(fileInput.files[0]);
+    });
+
+    const photoDropZone = document.getElementById('photo-drop-zone');
+    photoDropZone.ondrop = e => {
+      console.log(e);
+      e.preventDefault();
+    }
+
+    const submit = document.getElementById('photo-submit');
+    submit.addEventListener('click', () => {
       this.addPhoto();
     });
   }
@@ -82,7 +92,7 @@ class PhotoForm extends Component {
           <div className="form-prompt-info">
             We ask that you upload at least 2 pictures of yourself; but upload as many as you'd like. We encourage you to review your pictures periodically to make sure they are up to date. Snapshots and Selfies just fine here. Remember this image is for our internal use and will not be shared with potential matches – you will also be able to swap it out later if you wish.
           </div>
-          <div className="form-photo-img"></div>
+          <div id="photo-drop-zone" className="form-photo-img"></div>
           <input type="file" id="choose-file-btn" className="choose-file-btn" />
           <div className="form-photo-desc">
             Your pictures must be 4 megabytes or smaller. If you have problems, please contact us1l 1 (646) 791-3283
