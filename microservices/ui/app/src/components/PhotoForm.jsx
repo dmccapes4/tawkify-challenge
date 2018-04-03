@@ -110,11 +110,23 @@ class PhotoForm extends Component {
 
     const submit = document.getElementById('photo-submit');
     submit.addEventListener('click', () => {
-      this.addPhoto();
+      if (this.state.userInfo.imageFiles.length > 1) {
+        console.log(this.state.userInfo.imageFiles.length);
+        this.addPhoto();
+      } else {
+        const photoErrors = document.getElementById("photo-errors");
+        while (photoErrors.firstChild) {
+          photoErrors.removeChild(photoErrors.firstChild);
+        }
+        const error = document.createElement("div");
+        error.innerHTML = "Must select at least two photos.";
+        photoErrors.appendChild(error);
+      }
     });
   }
 
   render() {
+    console.log(`here: ${this.state.userInfo.imageFiles}`);
     return(
       <div>
         <div className="progress-tracker">
@@ -140,6 +152,7 @@ class PhotoForm extends Component {
           <div id="photo-submit" className="submit">
             SAVE AND CONTINUE
           </div>
+          <div id="photo-errors" className="errors"></div>
         </div>
       </div>
     )
