@@ -16,6 +16,6 @@
   flex-direction: column;
 }
 
-.user-images img {
-  height: 155px;
+.user-info img {
+  height: 100px;
 }

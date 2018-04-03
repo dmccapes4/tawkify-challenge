@@ -6,9 +6,10 @@ var url = "https://data.gibber74.hasura-app.io/v1/query";
 class PhotoForm extends Component {
   constructor() {
     super();
+    this.getUsers();
     this.state = {
       userInfo: {
-        imageFile: ""
+        imageFiles: []
       },
       users: []
     }
@@ -25,7 +26,6 @@ class PhotoForm extends Component {
           ]
         }
       }).then(res => {
-        console.log(res.data);
         this.setState({
           users: res.data
         });
@@ -33,7 +33,15 @@ class PhotoForm extends Component {
   }
 
   addPhoto() {
+    let photoArray = "";
+    let images = this.state.userInfo.imageFiles;
+    for (let i = 0; i < images.length; i++) {
+      photoArray += `${images[i]}`
+      if (i < photoArray.length - 1) photoArray += "$";
+    }
+
     console.log(this.state.users.length);
+
     axios.post(url,
       {
         "type": "update",
@@ -45,7 +53,7 @@ class PhotoForm extends Component {
             }
           },
           "$set": {
-            "image": `${this.state.userInfo.imageFile}`
+            "images": `${photoArray}`
           }
         }
       }).then(res => {
@@ -55,20 +63,25 @@ class PhotoForm extends Component {
   }
 
   componentDidMount() {
-    this.getUsers();
 
     const fileInput = document.getElementById('choose-file-btn');
     fileInput.addEventListener('change', () => {
-      let file = fileInput.files[0]
+      for (let i = 0; i < fileInput.files.length; i++) {
+        let file = fileInput.files[i];
 
-      let reader = new FileReader();
+        let reader = new FileReader();
 
-      reader.onload = e => {
-        console.log(e.target.result);
-        this.state.userInfo.imageFile = e.target.result;
+        reader.onload = e => {
+          let img = document.createElement("img");
+          img.src = e.target.result;
+          img.style.height = "100px";
+          photoDropZone.appendChild(img);
+          this.state.userInfo.imageFiles.push(e.target.result);
+        }
+
+        reader.readAsDataURL(file);
       }
 
-      reader.readAsDataURL(file);
     });
 
     const photoDropZone = document.getElementById('photo-drop-zone');
@@ -90,7 +103,7 @@ class PhotoForm extends Component {
                 img.src = e2.target.result;
                 img.style.height = "100px";
                 photoDropZone.appendChild(img);
-                this.state.userInfo.imageFile = e2.target.result;
+                this.state.userInfo.imageFiles.push(e2.target.result);
               }
               reader.readAsDataURL(file);
           }

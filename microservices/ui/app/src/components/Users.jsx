@@ -37,17 +37,16 @@ class Users extends Component {
         <div>
         {
           this.state.users.map(user => {
-            // let reader = new FileReader();
-            // reader.onload = () => {
-            //   let userImages = document.getElementById("user-images");
-            //   let img = document.createElement("img");
-            //   img.src= reader.result;
-            //   userImages.appendChild(img);
-            // }
-            // reader.readAsDataURL(user.image);
+            console.log(user.images.split('$'));
             return (
               <div className="user-info" key={`${user.id}`}>
-                <img src={`${user.image}`} />
+                {
+                  user.images.split('$').map(image => {
+                    return (
+                      <img src={image} />
+                    )
+                  })
+                }
                 <div>{`gender: ${user.gender}`}</div>
                 <div>{`seeking: ${user.seeking}`}</div>
                 <div>{`location: ${user.location}`}</div>

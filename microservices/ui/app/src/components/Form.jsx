@@ -24,6 +24,24 @@ class Form extends Component {
     }
   }
 
+  getUsers() {
+    axios.post(url,
+      {
+        "type": "select",
+        "args": {
+          "table": "user",
+          "columns": [
+              "id"
+          ]
+        }
+      }).then(res => {
+        console.log(res.data);
+        this.setState({
+          users: res.data
+        });
+      });
+  }
+
   successfulSubmit() {
     let user = this.state.userInfo;
         axios.post(url,
@@ -146,6 +164,7 @@ class Form extends Component {
   }
 
   componentDidMount() {
+    this.getUsers();
 
     const formGender = document.getElementById('form-gender');
     formGender.addEventListener('change', () => {
