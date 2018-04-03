@@ -420,5 +420,7 @@
 }
 
 .errors {
-  color: red;
+  padding-top: 10px;
+  color: #F27172;
+  font-size: 12px;
 }

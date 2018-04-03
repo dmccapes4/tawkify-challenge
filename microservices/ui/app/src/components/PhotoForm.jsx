@@ -33,6 +33,7 @@ class PhotoForm extends Component {
   }
 
   addPhoto() {
+    console.log(this.state.users.length);
     axios.post(url,
       {
         "type": "update",

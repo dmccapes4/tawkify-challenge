@@ -267,19 +267,19 @@ class Form extends Component {
           <div className="form-container">
             <div className="form-left">
 
-              <div className="input-prompt">YOUR GENDER</div>
+              <div id="gender-prompt" className="input-prompt">YOUR GENDER</div>
               <select id="form-gender" className="form-select">
                 <option></option>
                 <option>Female</option>
                 <option>Male</option>
               </select>
-              <div className="input-description">Select your gender.</div>
+              <div id="gender-desc" className="input-description">Select your gender.</div>
 
-              <div className="input-prompt">LOCATION</div>
+              <div id="location-prompt" className="input-prompt">LOCATION</div>
               <input id="form-location" className="form-input" type="text" placeholder="Enter ZIP code"></input>
-              <div className="input-description">Where are you located.</div>
+              <div id="location-desc" className="input-description">Where are you located.</div>
 
-              <div className="input-prompt">YOUR HEIGHT</div>
+              <div id="height-prompt" className="input-prompt">YOUR HEIGHT</div>
               <select id="form-height" className="form-select">
                 <option></option>
                 <option>4 ft. 1 in.</option>
@@ -319,11 +319,11 @@ class Form extends Component {
                 <option>6 ft. 11 in.</option>
                 <option>7 ft. 0 in.</option>
               </select>
-              <div className="input-description">What is your height?</div>
+              <div id="height-desc" className="input-description">What is your height?</div>
 
-              <div className="input-prompt">OCCUPATION</div>
+              <div id="occupation-height" className="input-prompt">OCCUPATION</div>
               <input id="form-occupation" className="form-textarea" type="textarea"></input>
-              <div className="input-description">What do you do?</div>
+              <div id="occupation-desc" className="input-description">What do you do?</div>
 
               <div className="form-button-container">
                 <div id="form-income-factor-yes" className="button-active">Yes</div>
@@ -336,15 +336,15 @@ class Form extends Component {
 
             <div className="form-right">
 
-              <div className="input-prompt">YOU ARE SEEKING</div>
+              <div id="seeking-prompt" className="input-prompt">YOU ARE SEEKING</div>
               <select id="form-seeking" className="form-select">
                 <option></option>
                 <option>Men</option>
                 <option>Women</option>
               </select>
-              <div className="input-description">Select the sexual orientation you're seeking.</div>
+              <div id="seeking-desc" className="input-description">Select the sexual orientation you're seeking.</div>
 
-              <div className="input-prompt">YOUR BIRTHDAY</div>
+              <div id="birthday-prompt" className="input-prompt">YOUR BIRTHDAY</div>
               <div className="form-birthday-container">
                 <input id="month" className="form-birthday-daymonth" type="textarea" placeholder="MM"></input>
                 <input id="day" className="form-birthday-daymonth" type="textarea" placeholder="DD"></input>
@@ -373,7 +373,7 @@ class Form extends Component {
               </select>
               <div id="income-description" className="input-description">Why? This is one form of an indicator...</div>
 
-              <div className="input-prompt">INTERESTS</div>
+              <div id="interests-prompt" className="input-prompt">INTERESTS</div>
               <input id="form-interests" className="form-textarea" type="textarea"></input>
               <div className="input-description">Tell us a little more about yourself and what you like to do. We read everything, so please share!</div>
 
