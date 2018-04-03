@@ -421,6 +421,6 @@
 
 .errors {
   padding-top: 10px;
-  color: #F27172;
+  color: red;
   font-size: 12px;
 }

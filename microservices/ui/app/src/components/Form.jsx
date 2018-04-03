@@ -74,54 +74,86 @@ class Form extends Component {
   handleSubmit() {
     let user = this.state.userInfo;
     let error = false;
-    const errors = document.getElementById('errors');
+    const errors = document.getElementById("errors");
     while (errors.firstChild) {
       errors.removeChild(errors.firstChild);
     }
 
+    const genderPrompt = document.getElementById("gender-prompt");
+    genderPrompt.style.color = "black";
+
+    const locationPrompt = document.getElementById("location-prompt");
+    locationPrompt.style.color = "black";
+
+    const heightPrompt = document.getElementById("height-prompt");
+    heightPrompt.style.color = "black";
+
+    const occupationPrompt = document.getElementById("occupation-prompt");
+    occupationPrompt.style.color = "black";
+
+    const seekingPrompt = document.getElementById("seeking-prompt");
+    seekingPrompt.style.color = "black";
+
+    const birthdayPrompt = document.getElementById("birthday-prompt");
+    birthdayPrompt.style.color = "black";
+
+    const incomePrompt = document.getElementById("income-prompt");
+    incomePrompt.style.color = "black";
+
+    const interestsPrompt = document.getElementById("interests-prompt");
+    interestsPrompt.style.color = "black";
+
     if (user.gender === "") {
+      genderPrompt.style.color = "red";
       let genderError = document.createElement("div");
       genderError.innerHTML = "Please select a gender";
       errors.appendChild(genderError);
       error = true;
     }
     if (user.location === "") {
+      locationPrompt.style.color = "red";
       let locationError = document.createElement("div");
       locationError.innerHTML = "Please enter a location";
       errors.appendChild(locationError);
       error = true;
     }
     if (user.height === "") {
+      heightPrompt.style.color = "red";
       let heightError = document.createElement("div");
       heightError.innerHTML = "Please select a height";
       errors.appendChild(heightError);
       error = true;
     }
     if (user.occupation === "") {
+      occupationPrompt.style.color = "red";
       let occupationError = document.createElement("div");
       occupationError.innerHTML = "Please enter an occupation";
       errors.appendChild(occupationError);
       error = true;
     }
     if (user.seeking === "") {
+      seekingPrompt.style.color = "red";
       let seekingError = document.createElement("div");
       seekingError.innerHTML = "Please select the gender you are seeking";
       errors.appendChild(seekingError);
       error = true;
     }
     if (user.birthday === "") {
+      birthdayPrompt.style.color = "red";
       let birthdayError = document.createElement("div");
       birthdayError.innerHTML = "Please enter your birthday";
       errors.appendChild(birthdayError);
       error = true;
     }
     if (user.income === "") {
+      incomePrompt.style.color = "red";
       let incomeError = document.createElement("div");
       incomeError.innerHTML = "Please select an income";
       errors.appendChild(incomeError);
       error = true;
     }
     if (user.interests === "") {
+      interestsPrompt.style.color = "red";
       let interestsError = document.createElement("div");
       interestsError.innerHTML = "Please select an interest";
       errors.appendChild(interestsError);
@@ -321,7 +353,7 @@ class Form extends Component {
               </select>
               <div id="height-desc" className="input-description">What is your height?</div>
 
-              <div id="occupation-height" className="input-prompt">OCCUPATION</div>
+              <div id="occupation-prompt" className="input-prompt">OCCUPATION</div>
               <input id="form-occupation" className="form-textarea" type="textarea"></input>
               <div id="occupation-desc" className="input-description">What do you do?</div>
 
