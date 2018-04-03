@@ -7,7 +7,6 @@ import PhotoForm from './PhotoForm.jsx';
 
 class Main extends Component {
   render() {
-    const clusterName = process.env.REACT_APP_CLUSTER_NAME || 'NoClusterName';
     return (
       <HashRouter>
         <div className="App">

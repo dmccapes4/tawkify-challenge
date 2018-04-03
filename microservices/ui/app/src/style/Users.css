@@ -19,3 +19,13 @@
 .user-info img {
   height: 100px;
 }
+
+.go-back {
+  color: white;
+  background: blue;
+  padding: 10px;
+}
+
+.go-back:hover {
+  cursor: pointer;
+}

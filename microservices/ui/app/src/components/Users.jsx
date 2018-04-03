@@ -20,7 +20,6 @@ class Users extends Component {
           ]
         }
       }).then(res => {
-        console.log(res.data);
         this.setState({
           users: res.data
         });
@@ -29,21 +28,24 @@ class Users extends Component {
 
   componentDidMount() {
     this.getUsers();
+
+    const goBack = document.getElementById("go-back");
+    goBack.addEventListener('click', () => this.props.history.push("/"));
   }
 
   render() {
     return (
       <div className="users">
+        <div id="go-back" className="go-back">Return to start</div>
         <div>
         {
           this.state.users.map(user => {
-            console.log(user.images.split('$'));
             return (
               <div className="user-info" key={`${user.id}`}>
                 {
                   user.images.split('$').map(image => {
                     return (
-                      <img src={image} />
+                      <img src={image} key={image}/>
                     )
                   })
                 }

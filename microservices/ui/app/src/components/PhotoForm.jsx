@@ -40,8 +40,6 @@ class PhotoForm extends Component {
       if (i < photoArray.length - 1) photoArray += "$";
     }
 
-    console.log(this.state.users.length);
-
     axios.post(url,
       {
         "type": "update",
