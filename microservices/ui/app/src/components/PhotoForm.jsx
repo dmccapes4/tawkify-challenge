@@ -21,7 +21,7 @@ class PhotoForm extends Component {
         "args": {
           "table": "user",
           "columns": [
-              "*"
+              "id"
           ]
         }
       }).then(res => {
@@ -41,7 +41,7 @@ class PhotoForm extends Component {
           "table": "user",
           "where": {
             "id": {
-              "$eq": `${this.state.users.length}`
+              "$eq": `${this.state.users.length + 1}`
             }
           },
           "$set": {
@@ -85,11 +85,13 @@ class PhotoForm extends Component {
       for (let i = 0, file; file = files[i]; i++) {
           if (file.type.match(/image.*/)) {
               let reader = new FileReader();
-
               reader.onload = e2 => {
+                let img = document.createElement("img");
+                img.src = e2.target.result;
+                img.style.height = "100px";
+                photoDropZone.appendChild(img);
                 this.state.userInfo.imageFile = e2.target.result;
               }
-
               reader.readAsDataURL(file);
           }
       }

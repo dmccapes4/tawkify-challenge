@@ -1,0 +1,53 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 75px;
+  padding: 0px 10px 0px 10px;
+  color: white;
+  background: #222;
+}
+
+.nav-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left p:hover {
+  cursor: pointer;
+}
+
+.nav-title {
+  width: 150px;
+  height: 40px;
+  background: url('../images/logo.jpeg');
+  background-size: 100%;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.links {
+  display: flex;
+  font-size: 14px;
+}
+
+.links p {
+  margin: 5px;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+}
+
+.call-now {
+  width: 150px;
+  height: 58px;
+  background: url('../images/callnow.jpg');
+  background-size: 100%;
+  margin: 10px;
+}

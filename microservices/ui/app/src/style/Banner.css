@@ -1,0 +1,30 @@
+.banner {
+  display: flex;
+  flex-direction: column-reverse;
+  background: url('../images/banner.jpeg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 400px;
+  width: 100vw;
+}
+
+.blurb {
+  color: white;
+  line-height: 200%;
+}
+
+.blurb-background {
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  padding: 10px;
+  margin-bottom: 100px;
+}
+
+.blurb {
+  width: 730px;
+  font-size: 20px;
+}

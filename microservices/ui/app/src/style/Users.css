@@ -1,0 +1,21 @@
+.users {
+  display: flex;
+}
+
+.user div {
+  flex: 1;
+}
+
+.user-info {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.user-images {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-images img {
+  height: 155px;
+}

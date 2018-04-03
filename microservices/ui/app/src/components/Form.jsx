@@ -24,28 +24,9 @@ class Form extends Component {
     }
   }
 
-  getUsers() {
-    axios.post(url,
-      {
-        "type": "select",
-        "args": {
-          "table": "user",
-          "columns": [
-              "*"
-          ]
-        }
-      }).then(res => {
-        console.log(res.data);
-        this.setState({
-          users: res.data
-        });
-      });
-  }
-
   successfulSubmit() {
     let user = this.state.userInfo;
-    console.log(this.state.users.length);
-    axios.post(url,
+        axios.post(url,
       {
         "type": "insert",
         "args": {
@@ -67,7 +48,6 @@ class Form extends Component {
           ]
         }
       });
-      this.getUsers();
       this.props.history.push("/addphotos");
   }
 
@@ -166,8 +146,6 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    this.getUsers();
-
 
     const formGender = document.getElementById('form-gender');
     formGender.addEventListener('change', () => {

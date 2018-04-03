@@ -1,0 +1,57 @@
+.form-photo-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 197px;
+  background: url('../images/draganddrop.jpeg');
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  margin-bottom: 20px;
+}
+
+.choose-file-btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  background: #F27172;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.choose-file-btn::-webkit-file-upload-button {
+  width: 200px;
+  height: 40px;
+  visibility: hidden;
+}
+
+.choose-file-btn::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: 'CHOOSE FILE';
+  width: 200px;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+  font-family: ProximaNova;
+}
+
+
+.choose-file-btn:hover {
+  cursor: pointer;
+  background: #E26162;
+  transition: background 0.2s ease;
+}
+
+.form-photo-desc {
+  font-size: 14px;
+}

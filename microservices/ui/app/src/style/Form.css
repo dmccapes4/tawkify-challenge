@@ -1,0 +1,272 @@
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 175px;
+}
+
+.progress-img {
+  background: url('../images/progress-1.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 500px;
+  height: 50px;
+}
+
+.progress-img-2 {
+  background: url('../images/progress-2.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 500px;
+  height: 50px;
+}
+
+.progress-names {
+  display: flex;
+  width: 650px;
+  margin-top: 20px;
+  /* padding-right: 10px; */
+}
+
+.about {
+  margin-left: 30px;
+}
+
+.ideal {
+  margin-left: 90px;
+  color: gray;
+}
+
+.add {
+  margin-left: 115px;
+  color: gray;
+}
+
+.about {
+  margin-left: 30px;
+}
+
+.ideal {
+  margin-left: 90px;
+  color: gray;
+}
+
+.add-2 {
+  margin-left: 115px;
+}
+
+.about-2 {
+  margin-left: 30px;
+  color: gray;
+}
+
+.ideal-2 {
+  margin-left: 90px;
+  color: gray;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 650px;
+  margin-top: 40px;
+  margin-bottom: 200px;
+}
+
+.form-prompt {
+  font-size: 36px;
+  color: gray;
+}
+
+.form-prompt-info {
+  width: 720px;
+  margin-top: 40px;
+  line-height: 150%;
+}
+
+.form-container {
+  display: flex;
+  width: 700px;
+}
+
+
+.form-right {
+  flex: 2;
+  justify-content: center;
+}
+
+.form-middle {
+  flex: 1;
+}
+
+.form-left {
+  flex: 2;
+  justify-content: center;
+}
+
+.input-prompt {
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+.input-description {
+  font-size: 12px;
+  color: gray;
+}
+
+
+.form-select {
+  width: 314px;
+  height: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  color: rgba(0, 0, 0, 0.5);
+  background: url('../images/select.jpg');
+  background-size: 75%;
+  background-position: right;
+  background-repeat: no-repeat;
+  border: 2px solid lightgray;
+  font-size: 14px;
+  outline: none;
+  padding: 0px;
+  padding-left: 10px;
+}
+
+.form-select:hover {
+  cursor: pointer;
+}
+
+.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 300px;
+  height: 36px;
+  -webkit-border-radius: 0px;
+  border: 2px solid lightgray;
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.form-textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 300px;
+  height: 34px;
+  -webkit-border-radius: 0px;
+  border: 2px solid lightgray;
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  background: url('../images/corner.jpg');
+  background-size: 100%;
+  background-position: center;
+  padding-bottom: 4px;
+  outline: none;
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-inactive {
+  width: 80px;
+  height: 40px;
+  background: #BCBEC0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+  font-size: 13px;
+}
+
+.button-inactive:hover {
+  background: #A9A9A9;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button-active {
+  width: 80px;
+  height: 40px;
+  background: #00B9D7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+  font-size: 13px;
+}
+
+.form-button-description {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #222;
+}
+
+.form-birthday-container {
+  margin-bottom: 10px;
+}
+
+.form-birthday-container input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid lightgray;
+  height: 35px;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.form-birthday-daymonth {
+  width: 50px;
+}
+
+.form-birthday-year {
+  width: 60px;
+}
+
+#income-prompt {
+  margin-top: 50px;
+}
+
+#income-description {
+  color: #222;
+  margin-top: 2px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  margin-top: 50px;
+  background: #00B9D7;
+  color: white;
+  font-size: 14px;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background: #00A9C7;
+  transition: background 0.2s ease;
+}
+
+.errors {
+  padding-top: 10px;
+  color: red;
+  font-size: 12px;
+}
