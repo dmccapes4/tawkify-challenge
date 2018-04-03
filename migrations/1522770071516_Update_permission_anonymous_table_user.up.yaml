@@ -1,0 +1,23 @@
+- args:
+    role: anonymous
+    table: user
+  type: drop_update_permission
+- args:
+    permission:
+      columns:
+      - birthday
+      - gender
+      - height
+      - height_factor
+      - id
+      - image
+      - income
+      - income_factor
+      - interests
+      - location
+      - occupation
+      - seeking
+      filter: {}
+    role: anonymous
+    table: user
+  type: create_update_permission

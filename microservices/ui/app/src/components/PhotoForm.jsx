@@ -8,7 +8,7 @@ class PhotoForm extends Component {
     super();
     this.state = {
       userInfo: {
-        imageFiles:[]
+        imageFile: ""
       },
       users: []
     }
@@ -45,12 +45,11 @@ class PhotoForm extends Component {
             }
           },
           "$set": {
-            "image": `${this.state.userInfo.imageFiles[0]}`
+            "image": `${this.state.userInfo.imageFile}`
           }
         }
       }).then(res => {
-        console.log(res);
-        this.getUsers();
+        this.props.history.push("/users");
       }
     )
   }
@@ -66,7 +65,7 @@ class PhotoForm extends Component {
 
       reader.onload = e => {
         console.log(e.target.result);
-        this.state.userInfo.imageFiles.push(e.target.result);
+        this.state.userInfo.imageFile = e.target.result;
       }
 
       reader.readAsDataURL(file);
@@ -88,7 +87,7 @@ class PhotoForm extends Component {
               let reader = new FileReader();
 
               reader.onload = e2 => {
-                this.state.userInfo.imageFiles.push(e2.target.result);
+                this.state.userInfo.imageFile = e2.target.result;
               }
 
               reader.readAsDataURL(file);
