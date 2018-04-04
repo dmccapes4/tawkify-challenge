@@ -23,7 +23,61 @@ class PartnerForm extends Component {
     }
   }
 
+  // Database call to get users
+  getUsers() {
+    axios.post(url,
+      {
+        "type": "select",
+        "args": {
+          "table": "user",
+          "columns": [
+              "id"
+          ]
+        }
+      }).then(res => {
+        this.setState({
+          users: res.data
+        });
+      });
+  }
+
+  addIdealPartner() {
+    console.log('HWEERWGFVRSEGVW');
+    let qualities = this.state.userInfo.qualities.join('*');
+    console.log(qualities);
+    let hangups = this.state.userInfo.hangups.join('*');
+    console.log(hangups);
+    let traits = this.state.userInfo.traits.join('*');
+    console.log(traits);
+    axios.post(url,
+      {
+        "type": "update",
+        "args": {
+          "table": "user",
+          "where": {
+            "id": {
+              "$eq": `${this.state.users.length + 1}`
+            }
+          },
+          "$set": {
+            "qualities": `${qualities}`,
+            "more_qualities": `${this.state.userInfo.moreQualities}`,
+            "goal": `${this.state.userInfo.goal}`,
+            "more_goals": `${this.state.userInfo.moreGoals}`,
+            "hangups": `${hangups}`,
+            "more_hangups": `${this.state.userInfo.moreHangups}`,
+            "traits": `${hangups}`,
+            "more_traits": `${this.state.userInfo.moreTraits}`
+          }
+        }
+      }).then(res => {
+        console.log(res);
+      });
+  }
+
+
   componentDidMount() {
+    this.getUsers();
 
     const qualities = document.getElementById("qualities");
     const qualitiesButton = document.getElementById("qualities-button");
@@ -71,7 +125,8 @@ class PartnerForm extends Component {
 
     const submit = document.getElementById("partner-submit");
     submit.addEventListener('click', () => {
-      console.log(this.state.userInfo);
+      this.addIdealPartner();
+      window.scroll(0, 0);
       this.props.history.push("/addphotos");
     });
   }
@@ -136,6 +191,7 @@ class PartnerForm extends Component {
         <input id="traits" className="form-input-item" type="text" placeholder="e.g. established career"></input>
         <div id="traits-button" className="qualities-button"><i className="fa fa-plus"></i><div>ADD</div></div>
       </div>
+      <div className="input-description">What do you bring to the table that you are most confident about?</div>
 
       <div className="input-prompt">IF YOU'D LIKE... TELL US MORE</div>
       <input id="more-traits" className="form-more" type="text"></input>

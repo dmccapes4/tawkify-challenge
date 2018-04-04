@@ -71,6 +71,7 @@ class Form extends Component {
           ]
         }
       });
+      window.scroll(0, 0);
       this.props.history.push("/idealpartner");
   }
 

@@ -35,7 +35,10 @@ class Users extends Component {
 
     // Allow user to click sidebar to return to first form
     const goBack = document.getElementById("go-back");
-    goBack.addEventListener('click', () => this.props.history.push("/"));
+    goBack.addEventListener('click', () => {
+      window.scroll(0, 0);
+      this.props.history.push("/");
+    });
   }
 
   // Render photos above user info for every user
@@ -50,9 +53,7 @@ class Users extends Component {
               <div className="user-info" key={`${user.id}`}>
                 {
                   user.images.split('$').map(image => {
-                    return (
-                      <img src={image} key={image}/>
-                    )
+                    return <img src={image} key={image}/>
                   })
                 }
                 <div>{`gender: ${user.gender}`}</div>
@@ -63,6 +64,29 @@ class Users extends Component {
                 <div>{`income: ${user.income}`}</div>
                 <div>{`income factor: ${user.income_factor}`}</div>
                 <div>{`interests: ${user.interests}`}</div>
+                <div>qualities:</div>
+                {
+                  user.qualities.split('*').map(quality => {
+                    return <div>{quality}</div>
+                  })
+                }
+                <div>{`more qualites: ${user.more_qualities}`}</div>
+                <div>{`goal: ${user.goal}`}</div>
+                <div>{`more goals: ${user.more_goals}`}</div>
+                <div>hangups:</div>
+                {
+                  user.hangups.split('*').map(hangup => {
+                    return <div>{hangup}</div>
+                  })
+                }
+                <div>{`more hangups: ${user.more_hangups}`}</div>
+                <div>traits:</div>
+                {
+                  user.traits.split('*').map(trait => {
+                    return <div>{trait}</div>
+                  })
+                }
+                <div>{`more traits: ${user.more_traits}`}</div>
               </div>
             )
           })

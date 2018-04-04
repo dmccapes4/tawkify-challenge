@@ -53,7 +53,7 @@ class PhotoForm extends Component {
           "table": "user",
           "where": {
             "id": {
-              "$eq": `${this.state.users.length + 1}`
+              "$eq": `${this.state.users.length}`
             }
           },
           "$set": {

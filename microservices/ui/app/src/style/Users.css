@@ -22,10 +22,12 @@
 
 .go-back {
   color: white;
-  background: blue;
+  background: #00B9D7;
   padding: 10px;
 }
 
 .go-back:hover {
   cursor: pointer;
+  background: #00A9C7;
+  transition:  background 0.2s ease;
 }
