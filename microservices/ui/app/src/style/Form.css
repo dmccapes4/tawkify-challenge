@@ -114,7 +114,7 @@
   background-size: 75%;
   background-position: right;
   background-repeat: no-repeat;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   font-size: 14px;
   outline: none;
   padding: 0px;
@@ -131,11 +131,11 @@
   width: 300px;
   height: 38px;
   -webkit-border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.5);
   outline: none;
 }
 
@@ -145,11 +145,11 @@
   width: 300px;
   height: 32px;
   -webkit-border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.5);
   background: url('../images/corner.jpg');
   background-size: 100%;
   background-position: center;
@@ -205,10 +205,10 @@
 .form-birthday-container input {
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 1px solid rgba(0, 0, 0, 0.3);
   height: 38px;
   font-size: 14px;
   text-align: center;
+  color: rgba(0, 0, 0, 0.5);
   margin-right: 10px;
 }
 
@@ -218,6 +218,18 @@
 
 .form-birthday-year {
   width: 60px;
+}
+
+#day {
+  border: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+#month {
+  border: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+#year {
+  border: 1px solid rgba(100, 100, 100, 0.3);
 }
 
 #income-prompt {

@@ -9,6 +9,7 @@ class Users extends Component {
   // State carries users
   constructor() {
     super();
+    window.scroll(0, 0);
     this.state = { users: [] };
   }
 

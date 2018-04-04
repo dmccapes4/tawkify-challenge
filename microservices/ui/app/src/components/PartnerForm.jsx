@@ -7,6 +7,7 @@ var url = "https://data.gibber74.hasura-app.io/v1/query";
 class PartnerForm extends Component {
   constructor() {
     super();
+    window.scroll(0, 0);
     this.state = {
       userInfo: {
         qualities: [],
@@ -41,14 +42,10 @@ class PartnerForm extends Component {
       });
   }
 
-  addIdealPartner() {
-    console.log('HWEERWGFVRSEGVW');
+  successfulSubmit() {
     let qualities = this.state.userInfo.qualities.join('*');
-    console.log(qualities);
     let hangups = this.state.userInfo.hangups.join('*');
-    console.log(hangups);
     let traits = this.state.userInfo.traits.join('*');
-    console.log(traits);
     axios.post(url,
       {
         "type": "update",
@@ -71,8 +68,62 @@ class PartnerForm extends Component {
           }
         }
       }).then(res => {
-        console.log(res);
+        this.props.history.push("/addphotos")
       });
+  }
+
+  addIdealPartner() {
+    let error = false;
+    const errors = document.getElementById("errors");
+    while (errors.firstChild) {
+      errors.removeChild(errors.firstChild);
+    }
+
+    let qualities = this.state.userInfo.qualities.join('*');
+    const formQualities = document.getElementById("qualities-input-container");
+    formQualities.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+    if (qualities.length === 0){
+      formQualities.style.border = "1px solid red";
+      let qualitiesError = document.createElement("div");
+      qualitiesError.innerHTML = "Please select a top quality";
+      errors.appendChild(qualitiesError);
+      error = true;
+    }
+
+    const formGoal = document.getElementById("goal");
+    formGoal.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+    if (this.state.userInfo.goal === "") {
+      formGoal.style.border = "1px solid red";
+      let goalError = document.createElement("div");
+      goalError.innerHTML = "Please select a relationship goal";
+      errors.appendChild(goalError);
+      error = true;
+    }
+
+    let hangups = this.state.userInfo.hangups.join('*');
+    const formHangups = document.getElementById("hangups-input-container");
+    formHangups.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+    if (hangups.length === 0) {
+      formHangups.style.border = "1px solid red";
+      let hangupsError = document.createElement("div");
+      hangupsError.innerHTML = "Please select a relationship hangup";
+      errors.appendChild(hangupsError);
+      error = true;
+    }
+
+    let traits = this.state.userInfo.traits.join('*');
+    const formTraits = document.getElementById("traits-input-container");
+    if (traits.length === 0) {
+      formTraits.style.border = "1px solid red";
+      let traitsError = document.createElement("div");
+      traitsError.innerHTML = "Please select a standout trait";
+      errors.appendChild(traitsError);
+      error = true;
+    }
+
+    if (!error) {
+      this.successfulSubmit();
+    }
   }
 
 
@@ -126,8 +177,6 @@ class PartnerForm extends Component {
     const submit = document.getElementById("partner-submit");
     submit.addEventListener('click', () => {
       this.addIdealPartner();
-      window.scroll(0, 0);
-      this.props.history.push("/addphotos");
     });
   }
 
@@ -200,7 +249,7 @@ class PartnerForm extends Component {
       <div id="partner-submit" className="submit">
       SAVE AND CONTINUE
       </div>
-      <div id="photo-errors" className="errors"></div>
+      <div id="partner-errors" className="errors"></div>
       </div>
       </div>
     )

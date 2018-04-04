@@ -9,6 +9,7 @@ class Form extends Component {
   // Define the state to allow for users and collect the user info from the page
   constructor() {
     super();
+    window.scroll(0, 0);
     this.state = {
       userInfo: {
         gender: "",
@@ -71,7 +72,6 @@ class Form extends Component {
           ]
         }
       });
-      window.scroll(0, 0);
       this.props.history.push("/idealpartner");
   }
 
@@ -86,66 +86,58 @@ class Form extends Component {
       errors.removeChild(errors.firstChild);
     }
 
-    // Collect all prompts
-    const genderPrompt = document.getElementById("gender-prompt");
-    genderPrompt.style.color = "black";
+    // Collect all inputs, set them to normal border and change the border to red
+    // if there is an error
 
-    const locationPrompt = document.getElementById("location-prompt");
-    locationPrompt.style.color = "black";
+    const formGender = document.getElementById("form-gender");
+    formGender.style.border = "1px solid rgba(100, 100, 100, 0.3)";
 
-    const heightPrompt = document.getElementById("height-prompt");
-    heightPrompt.style.color = "black";
-
-    const occupationPrompt = document.getElementById("occupation-prompt");
-    occupationPrompt.style.color = "black";
-
-    const seekingPrompt = document.getElementById("seeking-prompt");
-    seekingPrompt.style.color = "black";
-
-    const birthdayPrompt = document.getElementById("birthday-prompt");
-    birthdayPrompt.style.color = "black";
-
-    const incomePrompt = document.getElementById("income-prompt");
-    incomePrompt.style.color = "black";
-
-    const interestsPrompt = document.getElementById("interests-prompt");
-    interestsPrompt.style.color = "black";
-
-    // Change prompt colors, set error to true, and render error if fields are unfilled
     if (user.gender === "") {
-      genderPrompt.style.color = "red";
+      formGender.style.border = "1px solid red";
       let genderError = document.createElement("div");
       genderError.innerHTML = "Please select a gender";
       errors.appendChild(genderError);
       error = true;
     }
 
+    const formLocation = document.getElementById("form-location");
+    formLocation.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+
     if (user.location === "") {
-      locationPrompt.style.color = "red";
+      formLocation.style.border = "1px solid red";
       let locationError = document.createElement("div");
       locationError.innerHTML = "Please enter a location";
       errors.appendChild(locationError);
       error = true;
     }
 
+    const formHeight = document.getElementById("form-height");
+    formHeight.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+
     if (user.height === "") {
-      heightPrompt.style.color = "red";
+      formHeight.style.border = "1px solid red";
       let heightError = document.createElement("div");
       heightError.innerHTML = "Please select a height";
       errors.appendChild(heightError);
       error = true;
     }
 
+    const formOccupation = document.getElementById("form-occupation");
+    formOccupation.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+
     if (user.occupation === "") {
-      occupationPrompt.style.color = "red";
+      formOccupation.style.border = "1px solid red";
       let occupationError = document.createElement("div");
       occupationError.innerHTML = "Please enter an occupation";
       errors.appendChild(occupationError);
       error = true;
     }
 
+    const formSeeking = document.getElementById("form-seeking");
+    formSeeking.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+
     if (user.seeking === "") {
-      seekingPrompt.style.color = "red";
+      formSeeking.style.border = "1px solid red";
       let seekingError = document.createElement("div");
       seekingError.innerHTML = "Please select the gender you are seeking";
       errors.appendChild(seekingError);
@@ -153,28 +145,40 @@ class Form extends Component {
     }
 
     // Birthday checks for day, month and year
+    const day  = document.getElementById("day");
+    day.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+    if (day.value.length !== 2) day.style.border = "1px solid red";
+    const month = document.getElementById("month");
+    month.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+    if (month.value.length !== 2) month.style.border = "1px solid red";
+    const year = document.getElementById("year");
+    year.style.border = "1px solid rgba(100, 100, 100, 0.3)";
+    if (year.value.length !== 2) year.style.border = "1px solid red";
     let birthday = user.birthday.split("/");
     if (birthday.length !== 3 ||
         (birthday[0] && birthday[0].length !== 2) ||
         (birthday[1] && birthday[1].length !== 2) ||
         (birthday[2] && birthday[2].length !== 4)) {
-      birthdayPrompt.style.color = "red";
       let birthdayError = document.createElement("div");
       birthdayError.innerHTML = "Please enter your birthday";
       errors.appendChild(birthdayError);
       error = true;
     }
 
+    const formIncome = document.getElementById("form-income");
+    formIncome.style.border = "1px solid rgba(100, 100, 100, 0.3)";
     if (user.income === "") {
-      incomePrompt.style.color = "red";
+      formIncome.style.border = "1px solid red";
       let incomeError = document.createElement("div");
       incomeError.innerHTML = "Please select an income";
       errors.appendChild(incomeError);
       error = true;
     }
 
+    const formInterests = document.getElementById("form-interests");
+    formInterests.style.border = "1px solid rgba(100, 100, 100, 0.3)";
     if (user.interests === "") {
-      interestsPrompt.style.color = "red";
+      formInterests.style.border = "1px solid red";
       let interestsError = document.createElement("div");
       interestsError.innerHTML = "Please select an interest";
       errors.appendChild(interestsError);

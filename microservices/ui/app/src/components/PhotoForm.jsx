@@ -9,6 +9,7 @@ class PhotoForm extends Component {
   // Define the state with users and user info that contains image files
   constructor() {
     super();
+    window.scroll(0, 0);
     this.getUsers();
     this.state = {
       userInfo: {

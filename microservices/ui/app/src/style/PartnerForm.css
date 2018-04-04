@@ -28,12 +28,12 @@
   width: 500px;
   height: 38px;
   -webkit-border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   border-right: none;
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.6);
   outline: none;
 }
 
@@ -46,7 +46,7 @@
   height: 38px;
   background: #00B9D7;
   color: white;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   border-left: none;
   display: flex;
   align-items: center;
@@ -69,16 +69,16 @@
   width: 580px;
   height: 78px;
   -webkit-border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   font-size: 14px;
   padding-top: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.5);
   outline: none;
 }
 
 .form-more input {
-  
+
 }
 
 .ideal-select {
