@@ -145,11 +145,11 @@ class PhotoForm extends Component {
     return(
       <div>
         <div className="progress-tracker">
-          <div className="progress-img-2"></div>
+          <div className="progress-img-3"></div>
           <div className="progress-names">
-            <div className="about-2">ABOUT YOURSELF</div>
-            <div className="ideal-2">IDEAL PARTNER</div>
-            <div className="add-2">ADD PHOTOS</div>
+            <div className="about-3">ABOUT YOURSELF</div>
+            <div className="ideal-3">IDEAL PARTNER</div>
+            <div className="add-3">ADD PHOTOS</div>
           </div>
         </div>
         <div className="form">

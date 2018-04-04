@@ -71,7 +71,7 @@ class Form extends Component {
           ]
         }
       });
-      this.props.history.push("/addphotos");
+      this.props.history.push("/idealpartner");
   }
 
   // Checks if all fields are filled and calls successfulSubmit if so
@@ -324,7 +324,6 @@ class Form extends Component {
             Tell us a bit about yourself and who you’d like to meet. The more we know, the better. Be candid--this info is for our eyes only. Tawkify profiles and photos will forever be 100% confidential.
           </div>
 
-          // Form container contains two flexbox columns
           <div className="form-container">
             <div className="form-left">
 

@@ -4,6 +4,7 @@ import './App.css';
 import './style/Nav.css';
 import './style/Banner.css';
 import './style/Form.css';
+import './style/PartnerForm.css';
 import './style/PhotoForm.css';
 import './style/Users.css';
 import Main from './components/Main.jsx';
