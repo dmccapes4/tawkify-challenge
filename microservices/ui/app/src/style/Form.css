@@ -23,25 +23,17 @@
 }
 
 .about {
+  font-family: ProximaNova-Regular;
   margin-left: 30px;
 }
 
 .ideal {
-  margin-left: 90px;
+  margin-left: 100px;
   color: gray;
 }
 
 .add {
-  margin-left: 115px;
-  color: gray;
-}
-
-.about {
-  margin-left: 30px;
-}
-
-.ideal {
-  margin-left: 90px;
+  margin-left: 125px;
   color: gray;
 }
 
@@ -88,6 +80,7 @@
 }
 
 .input-prompt {
+  font-family: ProximaNova-Semibold;
   font-size: 20px;
   font-weight: 550;
   margin-top: 60px;
@@ -233,7 +226,7 @@
 }
 
 #income-prompt {
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 #income-description {

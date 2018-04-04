@@ -9,7 +9,7 @@
 }
 
 .add-2 {
-  margin-left: 115px;
+  margin-left: 125px;
   color: gray;
 }
 
@@ -19,7 +19,8 @@
 }
 
 .ideal-2 {
-  margin-left: 90px;
+  font-family: ProximaNova-Regular;
+  margin-left: 100px;
 }
 
 .form-input-item {
@@ -87,12 +88,12 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-border-radius: 0px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.5);
   background: url('../images/select.jpg');
   background-size: 35%;
   background-position: right;
   background-repeat: no-repeat;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
   font-size: 14px;
   outline: none;
   padding: 0px;
@@ -100,5 +101,25 @@
 }
 
 .ideal-select:hover {
+  cursor: pointer;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  padding-left: 10px;
+  width: 580px;
+  font-size: 12px;
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  margin-top: 10px;
+}
+
+.fa-trash {
+  color: rgba(100, 100, 100, 0.3);
+  height: 10px;
+}
+
+.fa-trash:hover {
   cursor: pointer;
 }

@@ -29,6 +29,7 @@
 }
 
 .links {
+  font-family: ProximaNova-Regular;
   display: flex;
   font-size: 14px;
 }
