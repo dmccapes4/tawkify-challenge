@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// This component builds the Navbar, but is purely cosmetic
 class Navbar extends Component {
   render() {
     return (

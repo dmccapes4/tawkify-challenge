@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+// URL for database calls
 var url = "https://data.gibber74.hasura-app.io/v1/query";
 
+// This component allows users to enter info and store it to database
 class Form extends Component {
+  // Define the state to allow for users and collect the user info from the page
   constructor() {
     super();
     this.state = {
@@ -24,6 +27,7 @@ class Form extends Component {
     }
   }
 
+  // Database call to get a list of user ids
   getUsers() {
     axios.post(url,
       {
@@ -35,13 +39,14 @@ class Form extends Component {
           ]
         }
       }).then(res => {
-        console.log(res.data);
+        // Use the response to set the users
         this.setState({
           users: res.data
         });
       });
   }
 
+  // Database call to save user info
   successfulSubmit() {
     let user = this.state.userInfo;
         axios.post(url,
@@ -69,14 +74,18 @@ class Form extends Component {
       this.props.history.push("/addphotos");
   }
 
+  // Checks if all fields are filled and calls successfulSubmit if so
   handleSubmit() {
     let user = this.state.userInfo;
+    // Define a boolean to keep track of errors in the form
     let error = false;
     const errors = document.getElementById("errors");
+    // Remove all errors to avoid duplicates
     while (errors.firstChild) {
       errors.removeChild(errors.firstChild);
     }
 
+    // Collect all prompts
     const genderPrompt = document.getElementById("gender-prompt");
     genderPrompt.style.color = "black";
 
@@ -101,6 +110,7 @@ class Form extends Component {
     const interestsPrompt = document.getElementById("interests-prompt");
     interestsPrompt.style.color = "black";
 
+    // Change prompt colors, set error to true, and render error if fields are unfilled
     if (user.gender === "") {
       genderPrompt.style.color = "red";
       let genderError = document.createElement("div");
@@ -108,6 +118,7 @@ class Form extends Component {
       errors.appendChild(genderError);
       error = true;
     }
+
     if (user.location === "") {
       locationPrompt.style.color = "red";
       let locationError = document.createElement("div");
@@ -115,6 +126,7 @@ class Form extends Component {
       errors.appendChild(locationError);
       error = true;
     }
+
     if (user.height === "") {
       heightPrompt.style.color = "red";
       let heightError = document.createElement("div");
@@ -122,6 +134,7 @@ class Form extends Component {
       errors.appendChild(heightError);
       error = true;
     }
+
     if (user.occupation === "") {
       occupationPrompt.style.color = "red";
       let occupationError = document.createElement("div");
@@ -129,6 +142,7 @@ class Form extends Component {
       errors.appendChild(occupationError);
       error = true;
     }
+
     if (user.seeking === "") {
       seekingPrompt.style.color = "red";
       let seekingError = document.createElement("div");
@@ -136,13 +150,20 @@ class Form extends Component {
       errors.appendChild(seekingError);
       error = true;
     }
-    if (user.birthday === "") {
+
+    // Birthday checks for day, month and year
+    let birthday = user.birthday.split("/");
+    if (birthday.length !== 3 ||
+        (birthday[0] && birthday[0].length !== 2) ||
+        (birthday[1] && birthday[1].length !== 2) ||
+        (birthday[2] && birthday[2].length !== 4)) {
       birthdayPrompt.style.color = "red";
       let birthdayError = document.createElement("div");
       birthdayError.innerHTML = "Please enter your birthday";
       errors.appendChild(birthdayError);
       error = true;
     }
+
     if (user.income === "") {
       incomePrompt.style.color = "red";
       let incomeError = document.createElement("div");
@@ -150,6 +171,7 @@ class Form extends Component {
       errors.appendChild(incomeError);
       error = true;
     }
+
     if (user.interests === "") {
       interestsPrompt.style.color = "red";
       let interestsError = document.createElement("div");
@@ -158,6 +180,7 @@ class Form extends Component {
       error = true;
     }
 
+    // Call successfulSubmit if there are no errors
     if (!error) {
       this.successfulSubmit();
     }
@@ -166,6 +189,7 @@ class Form extends Component {
   componentDidMount() {
     this.getUsers();
 
+    // Add event listeners to every component to change state
     const formGender = document.getElementById('form-gender');
     formGender.addEventListener('change', () => {
       this.state.userInfo.gender = formGender.options[formGender.selectedIndex].value
@@ -187,6 +211,8 @@ class Form extends Component {
     });
 
 
+    // Buttons have to toggle classes to change css
+    // Only change state and toggle classes if it changes state
     const formIncomeFactorYes = document.getElementById('form-income-factor-yes');
     const formIncomeFactorNo = document.getElementById('form-income-factor-no');
     formIncomeFactorYes.addEventListener('click', () => {
@@ -213,6 +239,7 @@ class Form extends Component {
       this.state.userInfo.seeking = formSeeking.options[formSeeking.selectedIndex].value
     });
 
+    // Birthday requires processing month, day and year
     const formBirthdayMonth = document.getElementById('month');
     formBirthdayMonth.addEventListener('change', () => {
       let birthday = this.state.userInfo.birthday;
@@ -237,6 +264,8 @@ class Form extends Component {
       this.state.userInfo.birthday = birthday.join('/');
     });
 
+    // Buttons have to toggle classes to change css
+    // Only change state and toggle classes if it changes state
     const formHeightFactorYes = document.getElementById('form-height-factor-yes');
     const formHeightFactorNo = document.getElementById('form-height-factor-no');
     formHeightFactorYes.addEventListener('click', () => {
@@ -268,13 +297,14 @@ class Form extends Component {
       this.state.userInfo.interests = formInterests.value;
     });
 
+    // Submit calls handleSubmit
     const submit = document.getElementById('about-submit');
     submit.addEventListener('click', () => {
-      console.log(this.state.userInfo);
       this.handleSubmit();
     })
   }
 
+  // Render progress tracker then form
   render() {
     return (
       <div>
@@ -293,6 +323,8 @@ class Form extends Component {
           <div className="form-prompt-info">
             Tell us a bit about yourself and who you’d like to meet. The more we know, the better. Be candid--this info is for our eyes only. Tawkify profiles and photos will forever be 100% confidential.
           </div>
+
+          // Form container contains two flexbox columns
           <div className="form-container">
             <div className="form-left">
 

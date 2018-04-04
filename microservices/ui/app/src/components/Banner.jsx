@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// This component displays the banner photo and blurb
 class Banner extends Component {
   render() {
     return (
