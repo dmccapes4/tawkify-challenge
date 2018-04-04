@@ -25,15 +25,15 @@
 .form-input-item {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 400px;
+  width: 500px;
   height: 38px;
   -webkit-border-radius: 0px;
-  border: 1px solid #555555;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-right: none;
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.3);
   outline: none;
 }
 
@@ -46,7 +46,7 @@
   height: 38px;
   background: #00B9D7;
   color: white;
-  border: 1px solid #555555;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-left: none;
   display: flex;
   align-items: center;
@@ -66,13 +66,35 @@
 .form-more {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 500px;
-  height: 76px;
+  width: 580px;
+  height: 78px;
   -webkit-border-radius: 0px;
-  border: 1px solid #222;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.3);
   outline: none;
+}
+
+.ideal-select {
+  width: 580px;
+  height: 38px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  color: rgba(0, 0, 0, 0.3);
+  background: url('../images/select.jpg');
+  background-size: 35%;
+  background-position: right;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  outline: none;
+  padding: 0px;
+  padding-left: 10px;
+}
+
+.ideal-select:hover {
+  cursor: pointer;
 }

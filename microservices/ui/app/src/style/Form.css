@@ -96,7 +96,8 @@
 }
 
 .input-description {
-  font-size: 12px;
+  margin-top: 5px;
+  font-size: 14px;
   font-weight: 400;
   color: gray;
 }
@@ -108,12 +109,12 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-border-radius: 0px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.3);
   background: url('../images/select.jpg');
   background-size: 75%;
   background-position: right;
   background-repeat: no-repeat;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 14px;
   outline: none;
   padding: 0px;
@@ -130,11 +131,11 @@
   width: 300px;
   height: 38px;
   -webkit-border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.3);
   outline: none;
 }
 
@@ -144,11 +145,11 @@
   width: 300px;
   height: 32px;
   -webkit-border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 14px;
   padding: 0px;
   padding-left: 10px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.3);
   background: url('../images/corner.jpg');
   background-size: 100%;
   background-position: center;
@@ -204,7 +205,7 @@
 .form-birthday-container input {
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   height: 38px;
   font-size: 14px;
   text-align: center;
